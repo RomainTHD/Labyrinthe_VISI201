@@ -1,0 +1,42 @@
+Display : ne pas tout suppr ? déplacer les éléments ? dessiner sur une image ?
+utiliser PIL ?
+
+afficher framerate dans barre titre
+
+skip frame si trop lent
+
+retirer code inutile et commenter
+
+sélectionner start et goal dans chacune des 2 moitiés de l'écran au pif (pas que mur)
+
+chance que recursive_backtracker ne change pas de direction
+
+kruskal nb blocs
+
+https://www.daniweb.com/programming/software-development/threads/279063/please-help-weird-delay-with-pong-tkinter
+
+
+
+reset avec 'r'
+2e fenêtre pour exporter le fichier et choisir type de génération ?
+
+vitesses différentes avec touches de clavier
+
+sauvegarde et chargement depuis fichier
+
+plusieurs solutions possibles dans le labyrinthe
+
+augmenter efficacité recursive_backtracker_gen
+
+resizable ?
+
+
+
+formes zarbi
+
+génération : Prim
+résolution : A*
+
+https://www.tutorialspoint.com/python/python_command_line_arguments.htm
+
+mettre couleurs dans un fichier séparé
