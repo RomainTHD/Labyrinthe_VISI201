@@ -73,15 +73,17 @@ class GenericGeneration(ABC):
             # YELLOW_CELL
             Map.setCell((x, y), Map.EMPTY)
 
+        Map.start_pos = Position.random((0, 0), (0, Map.height-1))
+        # Permet d'utiliser un random dans tous les cas, et ainsi de ne pas
+        # altérer l'aspect du labyrinthe, quelle que soit la position de départ
+
         if self.start_in_corner:
             Map.start_pos = Position((0, 0))
-        else:
-            Map.start_pos = Position.random((0, 0), (0, Map.height-1))
+
+        Map.goal_pos = Position.random((Map.width-1, 0), (Map.width-1, Map.height-1))
 
         if self.end_in_corner:
             Map.goal_pos = Position((Map.width-1, Map.height-1))
-        else:
-            Map.goal_pos = Position.random((Map.width-1, 0), (Map.width-1, Map.height-1))
 
         Map.setCell(Map.start_pos, Map.START)
         Map.setCell(Map.goal_pos, Map.GOAL)
@@ -115,36 +117,6 @@ class GenericGeneration(ABC):
 
         if not self.slow:
             Map.syncModifiedCells()
-
-        """
-        all_walls = []
-
-        for x, y in Map.dimensions:
-            p_horiz  = Position((x    , y+0.5))
-            p_vertic = Position((x+0.5, y    ))
-
-            if Map.isWallPosValid(p_horiz):
-                if Map.getWall(p_horiz) == Map.EMPTY:
-                    all_walls.append(p_horiz)
-
-            if Map.isWallPosValid(p_vertic):
-                if Map.getWall(p_vertic) == Map.EMPTY:
-                    all_walls.append(p_vertic)
-
-        random.shuffle(all_walls)
-
-        walls_to_destroy = round(((Map.width-1)*(Map.height-1))*(100-self.wall_ratio)/100)
-        all_walls = all_walls[:walls_to_destroy]
-
-        for p in all_walls:
-            Map.setWall(p, Map.WALL)
-
-            if self.slow:
-                Map.syncModifiedCells()
-
-        if not self.slow:
-            Map.syncModifiedCells()
-        """
 
         ########################################################################
 
