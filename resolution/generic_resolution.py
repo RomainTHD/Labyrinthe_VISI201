@@ -75,6 +75,17 @@ class GenericResolution(ABC):
         Map.syncModifiedCells()
         """
 
+        nb_solution_cell = 0
+        nb_visited_cell = 0
+
+        for x, y in Map.dimensions:
+            etat = Map.getCell((x, y))
+
+            if etat == Map.SOLUTION_PATH:
+                nb_solution_cell += 1
+            elif etat == Map.VISITED_PATH:
+                nb_visited_cell += 1
+
         if no_sol:
             print("Résolution mal terminée")
         else:
@@ -83,6 +94,9 @@ class GenericResolution(ABC):
             print("Nombre de tours :", self.total_frame_count)
 
             print("Nombre de fois où l'algorithme a avancé :", self.go_forward_frame)
+
+            print("Taille du chemin de solution :", nb_solution_cell, "cellules")
+            print("Nombre total de cellules visitées :", nb_visited_cell + nb_solution_cell, "cellules")
 
             delta_t = int(10 * 1000 * (time.time()-time_0))/10
             print("Temps :", delta_t, "ms")

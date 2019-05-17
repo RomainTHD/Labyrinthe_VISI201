@@ -42,6 +42,8 @@ class Resolution(GenericResolution):
 
             self.old_p = self.visited_pos_list.pop()
             # Si aucune direction n'est libre, on remonte à la dernière position
+
+            self.go_forward_frame += 1
         else:
             self.edited_wall_count += 1
             self.new_p = self.old_p + self.dir
