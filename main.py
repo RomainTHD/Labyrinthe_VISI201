@@ -82,7 +82,3 @@ Map.resetAll(save=False)
 
 Display.run()
 # Lancement de l'affichage
-
-"""
-985085517
-"""
