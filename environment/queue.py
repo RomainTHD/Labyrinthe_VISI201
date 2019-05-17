@@ -73,17 +73,16 @@ class Queue:
 
         return len(self._content)
 
+    def get(self) -> list:
+        return self._content[::-1]
+
 if __name__ == "__main__":
     q = Queue(1, 2, 3)
-    print(q)
-    #   "> [3, 2, 1] >"
+    assert q.get() == [1, 2, 3]
 
     q.enqueue(4)
-    print(q)
-    #    "> [4, 3, 2, 1] >"
+    assert q.get() == [4, 1, 2, 3]
 
     n = q.dequeue()
-    print(n)
-    #   "1"
-    print(q)
-    #   "> [4, 3, 2] >"
+    assert n == 3
+    assert q.get() == [4, 1, 2]

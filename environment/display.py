@@ -80,6 +80,12 @@ class Display:
         cls.time_between_frame = 1/frame_rate
         # Temps entre 2 images
 
+        cls.draw_time = cls.time_between_frame
+
+        cls.time_before_draw = time.time()
+
+        cls.skipped_frame = 0
+
         window_zoom = Settings.get("WINDOW_ZOOM", float)
 
         window_width = cls.window.winfo_screenwidth()*window_zoom/100
@@ -135,9 +141,18 @@ class Display:
         """
 
         if cls.is_running:
+            while time.time()-cls.time_before_draw < cls.time_between_frame:
+                time.sleep(0.01)
+
             can_display = Map.modifyCell()
 
+            for i in range(int(cls.draw_time/cls.time_between_frame)):
+                Map.modifyCell()
+                cls.skipped_frame += 1
+
             if can_display:
+                cls.time_before_draw = time.time()
+
                 cls.draw()
             else:
                 print("Affichage final")
@@ -259,14 +274,16 @@ class Display:
                                fill=Display.BLACK,
                                width=cls.WALL_WIDTH)
 
-        delta_t = time.time() - t1
-        # Calcul du temps mis
-
         cls.frame_count += 1
 
         cls.updateTitle()
 
-        cls.window.after(int(cls.time_between_frame*1000), cls.beforeDraw)
+        delta_t = time.time() - t1
+        # Calcul du temps mis
+
+        cls.draw_time = delta_t
+
+        cls.window.after(1, cls.beforeDraw)
         # Après un certain temps, on revient à beforeDraw
 
     @classmethod
@@ -386,7 +403,9 @@ class Display:
 
         title = "Génération : " + cls.gen_name + sep \
               + "Résolution : " + cls.res_name + sep \
-              + "images écoulées : " + str(cls.frame_count)
+              + "images écoulées : " + str(cls.frame_count) + sep \
+              + "images skippées : " + str(cls.skipped_frame) + sep \
+              + "vrai framerate : " + (str(int(1/cls.time_between_frame)) if cls.draw_time == 0 else str(int(100/cls.draw_time)/100)) + " fps"
 
         cls.window.title(title)
 

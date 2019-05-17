@@ -73,17 +73,16 @@ class Stack:
 
         return len(self._content)
 
+    def get(self) -> list:
+        return self._content[::-1]
+
 if __name__ == "__main__":
     q = Stack(3, 2, 1)
-    print(q)
-    #   "<-> [3, 2, 1] |"
+    assert q.get() == [3, 2, 1]
 
     q.push(4)
-    print(q)
-    #    "<-> [4, 3, 2, 1] |"
+    assert q.get() == [4, 3, 2, 1]
 
     n = q.pop()
-    print(n)
-    #   "4"
-    print(q)
-    #   "<-> [3, 2, 1] |"
+    assert n == 4
+    assert q.get() == [3, 2, 1]

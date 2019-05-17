@@ -1,7 +1,9 @@
 try:
     from environment.position import *
+    # Importation via main.py
 except ImportError:
     from position import *
+    # Exécution du code directement
 
 import random
 
@@ -9,8 +11,8 @@ class Direction(Position):
     """
     Classe contenant différentes directions héritant de la classe Position.
 
-    Cette classe Direction a 4 variables statiques (les 4 directions) qui sont
-    des instances de Direction.
+    Cette classe Direction contient 4 variables statiques (les 4 directions) qui
+    sont des instances de Direction.
     """
 
     all_directions = tuple()
@@ -20,9 +22,6 @@ class Direction(Position):
     def getRandomDirectionList() -> list:
         """
         Fonction retournant la liste des directions, triée de façon aléatoire.
-
-        INPUT :
-            None
 
         OUTPUT :
             dir_as_list : list Direction, liste des 4 directions
@@ -50,24 +49,18 @@ class Direction(Position):
 
         self.str_direction = str_direction
 
-        self.opposite = None
-        # Chaque direcion aura une direction opposée
-
         Direction.all_directions = Direction.all_directions + (self,)
         # On ajoute cette direction au tuple de toutes les directions
 
     def __str__(self) -> str:
         return self.str_direction
 
-    def __repr__(self) -> str:
-        return self.__str__()
-
 Direction.RIGHT = Direction(( 1,  0), 'R')
 Direction.DOWN  = Direction(( 0,  1), 'D')
 Direction.LEFT  = Direction((-1,  0), 'L')
 Direction.UP    = Direction(( 0, -1), 'U')
 
-Direction.RIGHT.opposite = Direction.LEFT
-Direction.UP.opposite    = Direction.DOWN
-Direction.LEFT.opposite  = Direction.RIGHT
-Direction.DOWN.opposite  = Direction.UP
+if __name__ == "__main__":
+    p = Position((1, 1))
+
+    assert p+Direction.UP == (1, 0)

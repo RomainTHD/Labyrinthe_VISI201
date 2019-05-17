@@ -460,11 +460,3 @@ class Map:
         raise NotImplementedError()
 
         return cls.dimensions
-
-    @classmethod
-    def importMap(cls, filename:str) -> None:
-        raise NotImplementedError()
-
-    @classmethod
-    def exportMap(cls, filename:str) -> None:
-        raise NotImplementedError()
