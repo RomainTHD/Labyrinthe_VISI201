@@ -29,10 +29,13 @@ class UnionFind:
             elem : object, objet auquel il faut trouver le représentant
 
         OUTPUT :
-            list, object, représentant
+            object, représentant
         """
 
-        repr = self._repr[elem]
+        try:
+            repr = self._repr[elem]
+        except KeyError as e:
+            raise KeyError("'{0}' n'appartient pas à Union-Find".format(elem)) from e
 
         if repr != elem:
             repr = self.find(repr)
@@ -43,6 +46,10 @@ class UnionFind:
     def union(self, elem1:object, elem2:object) -> None:
         """
         Réunit les 2 listes, celle contenant elem1 et celle contenant elem2
+
+        INPUT :
+            elem1 : object, élément à unir
+            elem2 : object, élément à unir
         """
 
         try:
