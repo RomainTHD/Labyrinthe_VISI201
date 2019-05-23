@@ -1,14 +1,18 @@
-Projet VISI201 2019
+<h1> Projet VISI201 2019</h1>
 
 
-Ce programme nécessite tkinter et Python 3
+<em>Ce programme nécessite tkinter et Python 3</em>
 
 Certain paramètres peuvent être changés dans le fichier settings.cfg
-Pour exécuter le programme, lancer main.py
+<br>
+Pour exécuter le programme, lancez main.py
 
 Contenu des dossiers :
-    environment : modules permettant de concevoir l'interface graphique de base et une grille vide
-    generation : modules générant le labyrinthe
-    resolution : modules résolvant le labyrinthe
+    <br>
+- environment : modules permettant de concevoir l'interface graphique de base et une grille vide
+    <br>
+- generation : modules générant le labyrinthe
+    <br>
+- resolution : modules résolvant le labyrinthe
 
-Par Romain THEODET
+<h5>Par Romain THEODET</h5>
