@@ -1,24 +1,21 @@
-Display : ne pas tout suppr ? déplacer les éléments ? dessiner sur une image ?
-utiliser PIL ?
+Affichage : Display : ne pas tout supprimer ? déplacer les éléments ? ou dessiner sur une image avec PIL ?
 
-afficher framerate dans barre titre
+afficher framerate dans barre de titre
 
-skip frame si trop lent
+skip frame si affichage trop lent
 
-retirer code inutile et commenter
+sélectionner start et goal dans chacune des 2 moitiés de l'écran aléatoirement (pas que mur)
 
-sélectionner start et goal dans chacune des 2 moitiés de l'écran au pif (pas que mur)
+changer probabilité que recursive_backtracker ne change pas de direction
 
-chance que recursive_backtracker ne change pas de direction
+kruskal : nombre de blocs
 
-kruskal nb blocs
-
+(aide)
 https://www.daniweb.com/programming/software-development/threads/279063/please-help-weird-delay-with-pong-tkinter
 
-
-
 reset avec 'r'
-2e fenêtre pour exporter le fichier et choisir type de génération ?
+
+2e fenêtre avec Tk.Toplevel pour exporter le fichier et choisir type de génération
 
 vitesses différentes avec touches de clavier
 
@@ -30,13 +27,12 @@ augmenter efficacité recursive_backtracker_gen
 
 resizable ?
 
-
-
-formes zarbi
+formes customisables (pas qu'une grille carrée)
 
 génération : Prim
 résolution : A*
 
+ligne de commande :
 https://www.tutorialspoint.com/python/python_command_line_arguments.htm
 
 mettre couleurs dans un fichier séparé
