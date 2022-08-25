@@ -1,11 +1,10 @@
 <h1> Projet VISI201 2019</h1>
 
-
 <em>Ce programme ne nécessite que tkinter et Python 3</em>
 
 Certain paramètres peuvent être changés dans le fichier settings.cfg
 <br>
-Pour exécuter le programme, lancez main.py
+Pour exécuter le programme, lancez `main.py`
 
 Contenu des dossiers :
     <br>
@@ -16,5 +15,3 @@ Contenu des dossiers :
 - resolution : modules résolvant le labyrinthe
 
 La génération et la résolution sont faites en amont, l'affichage ne fait que retracer ce qui a déjà été calculé. Attention donc aux boucles infinies dans les algoritmes ! Une génération parallèle dans différents threads a aussi été réalisée (mais n'est pas encore sur GitHub).
-
-<h5>Par Romain THEODET, CMI INFO L1, pour le cours de VISI201</h5>
